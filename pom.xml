@@ -92,6 +92,13 @@
       <version>4.5.3</version>
     </dependency>
 
+    <!-- Jstl and HTTP servlet request-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
     <!-- Spring Security -->
     <dependency>
       <groupId>org.springframework.security</groupId>

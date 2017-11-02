@@ -1,31 +1,30 @@
 package com.spring.pro4.model;
 
-
-import org.joda.time.DateTime;
-
-import javax.persistence.*;
-import java.io.Serializable;
-
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
-public class Contact implements Serializable {
-    private Long id;
+public class Contact {
+    private Integer id;
     private String firstName;
     private String lastName;
-    private DateTime birthDate;
-    private int version;
+    private LocalDate birthDate;
+    private Integer version;
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
 
     @Basic
     @Column(name = "FIRST_NAМE")
@@ -33,8 +32,8 @@ public class Contact implements Serializable {
         return firstName;
     }
 
-    public void setFirstName(String firstNaмe) {
-        this.firstName = firstNaмe;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     @Basic
@@ -43,17 +42,17 @@ public class Contact implements Serializable {
         return lastName;
     }
 
-    public void setLastName(String lastNaмe) {
-        this.lastName = lastNaмe;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Basic
     @Column(name = "BIRTH_DATE")
-    public DateTime getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(DateTime birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -85,17 +84,11 @@ public class Contact implements Serializable {
 
     @Override
     public int hashCode() {
-        Long result = id;
+        int result = id;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + version;
-        return Math.toIntExact(result);
-    }
-
-    @Override
-    public String toString() {
-        return "Contact - Id: " + id + ", First name: " + firstName
-                + ", Last name: " + lastName + ", Birthday: " + birthDate;
+        return result;
     }
 }

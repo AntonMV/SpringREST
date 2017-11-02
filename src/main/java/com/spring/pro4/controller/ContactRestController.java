@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value="/contact")
-public class ContactController {
+@RequestMapping(value="/restfull")
+public class ContactRestController {
 
-    final Logger logger = LoggerFactory.getLogger(ContactController.class);
+    final Logger logger = LoggerFactory.getLogger(ContactRestController.class);
 
     @Autowired
     private ContactService contactService;
@@ -26,7 +26,7 @@ public class ContactController {
 
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     @ResponseBody
-    public Contact findContactByid(@PathVariable Long id) {
+    public Contact findContactByid(@PathVariable Integer id) {
         return contactService.findByid(id);
     }
 
@@ -50,7 +50,7 @@ public class ContactController {
 
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Integer id) {
         logger.info("Deleting contact with id: " + id);
         Contact contact = contactService.findByid(id);
         contactService.delete(contact);

@@ -29,7 +29,7 @@ public class ContactServiceimpl implements ContactService {
     }
 
     @Override
-    public Contact findByid(Long id) {
+    public Contact findByid(Integer id) {
         return contactRepository.findOne(id);
     }
 

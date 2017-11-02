@@ -2,10 +2,9 @@ package com.spring.pro4;
 
 import com.spring.pro4.model.Contact;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Contacts implements Serializable {
+public class Contacts  {
     private List<Contact> contacts;
 
     public Contacts() {

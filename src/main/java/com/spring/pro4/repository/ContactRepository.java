@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface ContactRepository extends JpaRepository<Contact, Long> {
+public interface ContactRepository extends JpaRepository<Contact, Integer> {
     @Query("select b from Contact b where b.firstName = ?1")
     List<Contact> findByFirstName(String firstName);
 }

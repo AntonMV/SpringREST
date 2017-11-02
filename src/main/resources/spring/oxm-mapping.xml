@@ -7,7 +7,7 @@
     </class>
     <class name="com.spring.pro4.model.Contact" identity="id">
         <map-to xml="contact" />
-        <field name="id" type="long">
+        <field name="id" type="integer">
             <Ьind-xml name="id" node="element"/>
         </field>
         <field name="firstName" type="string">
@@ -16,15 +16,8 @@
         <field name="lastName" type="string">
             <Ьind-xml name="lastName" node="element" />
         </field>
-        <field name="birthDate" type="string" handler="dateHandler">
-            <Ьind-xml name="birthDate" node="element" />
-        </field>
         <field name="version" type="integer">
             <Ьind-xml name="version" node="element" />
         </field>
     </class>
-    <field-handler name="dateHandler"
-                   class="com.spring.pro4.DateTimeFieldHandler">
-        <param name="date-format" value="yyyy-М-dd" />
-    </field-handler>
 </mapping>
