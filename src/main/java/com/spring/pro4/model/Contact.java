@@ -4,8 +4,11 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.sql.Date;
+
+import org.hibernate.annotations.Type;
+
 import java.time.LocalDate;
+
 
 @Entity
 public class Contact {
@@ -48,6 +51,7 @@ public class Contact {
 
     @Basic
     @Column(name = "BIRTH_DATE")
+    @Type(type = "java.time.LocalDate")
     public LocalDate getBirthDate() {
         return birthDate;
     }

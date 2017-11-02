@@ -1,10 +1,4 @@
 <mapping>
-    <class name="com.spring.pro4.Contacts">
-        <field name="contacts" type="com.spring.pro4.model.Contact"
-               collection="arraylist">
-            <bind-xml name="contact" />
-        </field>
-    </class>
     <class name="com.spring.pro4.model.Contact" identity="id">
         <map-to xml="contact" />
         <field name="id" type="integer">
@@ -16,8 +10,15 @@
         <field name="lastName" type="string">
             <Ьind-xml name="lastName" node="element" />
         </field>
+        <field name="birth_date" type="string" handler="dateHandler">
+            <Ьind-xml name="birth_date" node="element" />
+        </field>
         <field name="version" type="integer">
             <Ьind-xml name="version" node="element" />
         </field>
     </class>
+        <field-handler name="dateHandler"
+                       class="com.spring.pro4.utils.LocalDateFieldHandler">
+            <param name="date-format" value="yyyy-М-dd" />
+        </field-handler>
 </mapping>
