@@ -1,10 +1,12 @@
 package com.spring.pro4.utils;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Properties;
 import org.exolab.castor.mapping.GeneralizedFieldHandler;
 import org.exolab.castor.mapping.ValidityException;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 
 public class LocalDateFieldHandler extends GeneralizedFieldHandler {
@@ -18,9 +20,9 @@ public class LocalDateFieldHandler extends GeneralizedFieldHandler {
 
     @Override
     public Object convertUponGet(Object value) {
-        DateTimeFormatter formatters = DateTimeFormatter.ofPattern(dateFormatPattern);
+        DateTimeFormatter formatters = DateTimeFormat.forPattern(dateFormatPattern);
         LocalDate localDate = (LocalDate) value;
-        return localDate.format(formatters);
+        return localDate.toString(formatters);
     }
 
     @Override

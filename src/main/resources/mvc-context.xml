@@ -20,7 +20,12 @@
 
     <bean id="castorMarshaller" class="org.springframework.oxm.castor.CastorMarshaller">
         <property name="mappingLocation"
-                  value="classpath:spring/oxm-mapping.xml"/>
+                  value="classpath:spring/castor-mapping.xml"/>
+    </bean>
+
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="schema"
+                  value="classpath:spring/jaxb-mapping.xsd"/>
     </bean>
 
 </beans>

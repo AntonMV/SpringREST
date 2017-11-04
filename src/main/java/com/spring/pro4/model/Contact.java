@@ -1,25 +1,35 @@
 package com.spring.pro4.model;
 
+import org.joda.time.LocalDate;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.hibernate.annotations.Type;
-
-import java.time.LocalDate;
-
 
 @Entity
 public class Contact {
-    private Integer id;
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
-    private Integer version;
 
     @Id
     @Column(name = "ID")
+    private Integer id;
+
+    @Basic
+    @Column(name = "FIRST_NAМE")
+    private String firstName;
+
+    @Basic
+    @Column(name = "LAST_NAМE")
+    private String lastName;
+
+    @Basic
+    @Column(name = "BIRTH_DATE")
+    private LocalDate birthDate;
+
+    @Basic
+    @Column(name = "VERSION")
+    private Integer version;
+
     public Integer getId() {
         return id;
     }
@@ -28,9 +38,6 @@ public class Contact {
         this.id = id;
     }
 
-
-    @Basic
-    @Column(name = "FIRST_NAМE")
     public String getFirstName() {
         return firstName;
     }
@@ -39,8 +46,6 @@ public class Contact {
         this.firstName = firstName;
     }
 
-    @Basic
-    @Column(name = "LAST_NAМE")
     public String getLastName() {
         return lastName;
     }
@@ -49,9 +54,6 @@ public class Contact {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "BIRTH_DATE")
-    @Type(type = "java.time.LocalDate")
     public LocalDate getBirthDate() {
         return birthDate;
     }
@@ -60,8 +62,6 @@ public class Contact {
         this.birthDate = birthDate;
     }
 
-    @Basic
-    @Column(name = "VERSION")
     public int getVersion() {
         return version;
     }
