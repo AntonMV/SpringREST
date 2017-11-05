@@ -2,6 +2,7 @@ package com.spring.pro4.controller;
 
 import com.spring.pro4.model.Contact;
 import com.spring.pro4.service.ContactService;
+import com.spring.pro4.utils.Contacts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping(value="/restfull")
+@RequestMapping(value="/restfull/contact")
 public class ContactRestController {
 
     final Logger logger = LoggerFactory.getLogger(ContactRestController.class);
@@ -22,17 +23,17 @@ public class ContactRestController {
 
     @RequestMapping(value = "/listdata", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
-    public List<Contact> listData() {
-        return contactService.findAll();
+    public Contacts listData() {
+        return new Contacts(contactService.findAll());
     }
 
-    @GetMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
     public Contact findContactById(@PathVariable Integer id) {
         return contactService.findByid(id);
     }
 
-    @PostMapping(value="/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/")
     @ResponseBody
     public Contact create(@RequestBody Contact contact) {
         logger.info("Creating contact: " + contact);
@@ -41,7 +42,7 @@ public class ContactRestController {
         return contact;
     }
 
-    @PutMapping(value="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value="/{id}")
     @ResponseBody
     public void update(@RequestBody Contact contact,
                       @PathVariable Long id) {

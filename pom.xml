@@ -20,6 +20,10 @@
     <jackson.version>2.9.2</jackson.version>
     <castor.version>1.4.1</castor.version>
     <jstl.version>1.2</jstl.version>
+    <junit.version>4.12</junit.version>
+    <google.guava.version>21.0</google.guava.version>
+    <joda.version>2.9.9</joda.version>
+    <jadira.usertype.version>6.0.1.GA</jadira.usertype.version>
   </properties>
 
   <dependencyManagement>
@@ -115,6 +119,20 @@
       <version>${castor.version}</version>
     </dependency>
 
+    <!-- Joda-time -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>${joda.version}</version>
+    </dependency>
+
+    <!-- usertype.core -->
+    <dependency>
+      <groupId>org.jadira.usertype</groupId>
+      <artifactId>usertype.core</artifactId>
+      <version>${jadira.usertype.version}</version>
+    </dependency>
+
 
     <!-- Jstl and HTTP servlet request-->
     <dependency>
@@ -147,6 +165,18 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${google.guava.version}</version>
     </dependency>
 
 

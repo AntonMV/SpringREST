@@ -2,7 +2,16 @@
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
         "http://castor.org/mapping.dtd">
 <mapping>
-    <class name="com.spring.pro4.model.Contact">
+    <field-handler name="dateHandler" class="com.spring.pro4.utils.LocalDateFieldHandler">
+            <param name="date-format" value="yyyy-MM-dd" />
+    </field-handler>
+    <class name="com.spring.pro4.utils.Contacts">
+        <field name="contacts" type="com.spring.pro4.model.Contact"
+               collection="arraylist">
+            <bind-xml name="contact" />
+        </field>
+    </class>
+    <class name="com.spring.pro4.model.Contact" identity="id">
         <map-to xml="contact" />
         <field name="id" type="integer">
             <bind-xml name="id" node="element"/>
@@ -13,7 +22,7 @@
         <field name="lastName" type="string">
             <bind-xml name="lastName" node="element" />
         </field>
-        <field name="birthDate" type="date">
+        <field name="birthDate" type="string" handler="dateHandler">
             <bind-xml name="birthDate" node="element" />
         </field>
         <field name="version" type="integer">

@@ -1,12 +1,12 @@
 package com.spring.pro4.model;
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
+import java.io.Serializable;
+
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+import javax.persistence.*;
 
 
 @Entity
@@ -26,8 +26,9 @@ public class Contact implements Serializable {
     private String lastName;
 
     @Basic
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     @Column(name = "BIRTH_DATE")
-    private Date birthDate;
+    private DateTime birthDate;
 
     @Basic
     @Column(name = "VERSION")
@@ -57,11 +58,11 @@ public class Contact implements Serializable {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public DateTime getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(DateTime birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -97,5 +98,11 @@ public class Contact implements Serializable {
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + version;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact - Id: " + id + ", First name: " + firstName
+                + ", Last name: " + lastName + ", Birthday: " + birthDate;
     }
 }
