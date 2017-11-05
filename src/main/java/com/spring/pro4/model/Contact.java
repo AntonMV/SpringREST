@@ -1,16 +1,19 @@
 package com.spring.pro4.model;
 
-import org.joda.time.LocalDate;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-public class Contact {
+public class Contact implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
     private Integer id;
 
@@ -24,7 +27,7 @@ public class Contact {
 
     @Basic
     @Column(name = "BIRTH_DATE")
-    private LocalDate birthDate;
+    private Date birthDate;
 
     @Basic
     @Column(name = "VERSION")
@@ -54,11 +57,11 @@ public class Contact {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

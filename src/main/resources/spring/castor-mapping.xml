@@ -1,24 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+        "http://castor.org/mapping.dtd">
 <mapping>
-    <class name="com.spring.pro4.model.Contact" identity="id">
+    <class name="com.spring.pro4.model.Contact">
         <map-to xml="contact" />
         <field name="id" type="integer">
-            <Ьind-xml name="id" node="element"/>
+            <bind-xml name="id" node="element"/>
         </field>
         <field name="firstName" type="string">
-            <Ьind-xml name="firstName" node="element" />
+            <bind-xml name="firstName" node="element" />
         </field>
         <field name="lastName" type="string">
-            <Ьind-xml name="lastName" node="element" />
+            <bind-xml name="lastName" node="element" />
         </field>
-        <field name="birth_date" type="string" handler="dateHandler">
-            <Ьind-xml name="birth_date" node="element" />
+        <field name="birthDate" type="date">
+            <bind-xml name="birthDate" node="element" />
         </field>
         <field name="version" type="integer">
-            <Ьind-xml name="version" node="element" />
+            <bind-xml name="version" node="element" />
         </field>
     </class>
-        <field-handler name="dateHandler"
-                       class="com.spring.pro4.utils.LocalDateFieldHandler">
-            <param name="date-format" value="yyyy-М-dd" />
-        </field-handler>
 </mapping>
