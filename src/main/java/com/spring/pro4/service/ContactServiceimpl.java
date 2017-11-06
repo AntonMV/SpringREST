@@ -42,4 +42,6 @@ public class ContactServiceimpl implements ContactService {
     public void delete(Contact contact) {
         contactRepository.delete(contact);
     }
+
+
 }

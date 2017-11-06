@@ -24,6 +24,7 @@
     <google.guava.version>21.0</google.guava.version>
     <joda.version>2.9.9</joda.version>
     <jadira.usertype.version>6.0.1.GA</jadira.usertype.version>
+    <httpclent.version>4.5.3</httpclent.version>
   </properties>
 
   <dependencyManagement>
@@ -133,6 +134,12 @@
       <version>${jadira.usertype.version}</version>
     </dependency>
 
+    <!-- httpclient -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>${httpclent.version}</version>
+    </dependency>
 
     <!-- Jstl and HTTP servlet request-->
     <dependency>

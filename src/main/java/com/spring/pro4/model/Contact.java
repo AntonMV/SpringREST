@@ -18,11 +18,11 @@ public class Contact implements Serializable {
     private Integer id;
 
     @Basic
-    @Column(name = "FIRST_NAМE")
+    @Column(name = "FIRST_NAME")
     private String firstName;
 
     @Basic
-    @Column(name = "LAST_NAМE")
+    @Column(name = "LAST_NAME")
     private String lastName;
 
     @Basic

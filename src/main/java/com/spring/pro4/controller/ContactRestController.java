@@ -10,10 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
-@RequestMapping(value="/restfull/contact")
+@RequestMapping(value="/restful/contact")
 public class ContactRestController {
 
     final Logger logger = LoggerFactory.getLogger(ContactRestController.class);
