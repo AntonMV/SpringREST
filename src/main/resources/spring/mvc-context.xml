@@ -9,7 +9,9 @@
 
     <mvc:annotation-driven>
         <mvc:message-converters>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true" />
+            </bean>
             <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
                 <property name="marshaller" ref="castorMarshaller"/>
                 <property name="unmarshaller" ref="castorMarshaller"/>

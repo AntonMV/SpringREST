@@ -19,13 +19,13 @@ public class ContactRestController {
     @Autowired
     private ContactService contactService;
 
-    @RequestMapping(value = "/listdata", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/listdata", method = RequestMethod.GET)
     @ResponseBody
     public Contacts listData() {
         return new Contacts(contactService.findAll());
     }
 
-    @GetMapping(value="/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping(value="/{id}")
     @ResponseBody
     public Contact findContactById(@PathVariable Integer id) {
         return contactService.findByid(id);
